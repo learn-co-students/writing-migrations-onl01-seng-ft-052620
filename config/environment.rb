@@ -9,6 +9,7 @@ ENV["SCHOOL_ENV"] ||= "development"
 DBRegistry[ENV["SCHOOL_ENV"]].connect!
 DB = ActiveRecord::Base.connection
 
+
 if ENV["SCHOOL_ENV"] == "test"
   ActiveRecord::Migration.verbose = false
 end
@@ -18,3 +19,4 @@ def drop_db
     DB.execute("DROP TABLE #{table}")
   end
 end
+
